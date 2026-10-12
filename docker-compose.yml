@@ -1,0 +1,11 @@
+services:
+  ecard-termin-watcher:
+    build: .
+    container_name: ecard-termin-watcher
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      STATE_PATH: /app/data/state.json
+      POLL_INTERVAL_SECONDS: "900"
+    volumes:
+      - ./data:/app/data
